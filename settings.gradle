@@ -1,2 +1,6 @@
+include ':library:checkversion'
+include ':app:features:login'
+include ':library:uicomponent'
+include ':core:presentation'
 include ':app'
 rootProject.name = "Movies"
