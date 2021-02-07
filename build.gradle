@@ -21,6 +21,50 @@ allprojects {
     }
 }
 
+ext {
+
+    //SDK & Tools
+    minSdkVersion = 21
+    targetSdkVersion = 29
+    compileSdkVersion = 29
+    versionCode = 1
+    versionName = "1.0"
+
+    //Android
+    kotlinVersion = "1.3.72"
+    kotlinCoreVersion = "1.3.2"
+    appCompatVersion = "1.2.0"
+    lifecycleVersion = "2.2.0"
+    coroutinesVersion = "1.3.9"
+
+    //Design
+    materialDesignVersion = "1.2.1"
+    constraintLayoutVersion = "2.0.4"
+
+    retrofitVersion = "2.9.0"
+
+    //testing
+    jUnitVersion = "4.13.1"
+
+    kotlinLib = "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
+    kotlinCoreLib = "androidx.core:core-ktx:$kotlinCoreVersion"
+    appCompatLib = "androidx.appcompat:appcompat:$appCompatVersion"
+    coroutinesLib = "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutinesVersion"
+    viewModelLib = "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycleVersion"
+    lifecycleLib = "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycleVersion"
+    liveDataLib = "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycleVersion"
+
+    retrofitLib = "com.squareup.retrofit2:retrofit:$retrofitVersion"
+    retrofitGsonLib = "com.squareup.retrofit2:converter-gson:$retrofitVersion"
+
+    materialDesignLib = "com.google.android.material:material:$materialDesignVersion"
+    constraintLayoutLib = "androidx.constraintlayout:constraintlayout:$constraintLayoutVersion"
+
+    jUnitLib = "junit:junit:$jUnitVersion"
+
+}
+
+
 task clean(type: Delete) {
     delete rootProject.buildDir
 }

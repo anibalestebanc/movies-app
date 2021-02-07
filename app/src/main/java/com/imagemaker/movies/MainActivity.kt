@@ -7,8 +7,6 @@ import com.imagemaker.login.ui.LoginActivity
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        Thread.sleep(2000)
         LoginActivity.launch(this).apply {
             finish()
         }

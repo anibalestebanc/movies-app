@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="FontStyle">
+        <attr name="fontType" format="enum">
+            <enum name="light" value="1"/>
+            <enum name="italic" value="2"/>
+            <enum name="regular" value="3"/>
+            <enum name="medium" value="4"/>
+            <enum name="bold" value="5"/>
+        </attr>
+    </declare-styleable>
+    
+    <declare-styleable name="ButtonView">
+        <attr name="buttonType" format="enum">
+            <enum name="primary" value="0"/>
+            <enum name="secondary" value="1"/>
+        </attr>
+    </declare-styleable>
+
+
+</resources>

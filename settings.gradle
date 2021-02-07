@@ -1,3 +1,4 @@
+include ':core:network'
 include ':library:checkversion'
 include ':app:features:login'
 include ':library:uicomponent'
