@@ -63,6 +63,8 @@ dependencies {
 
     implementation project(":app:features:login")
     implementation project(":library:uicomponent")
+    implementation project(":library:checkversion")
+    implementation project(":core:network")
 
     implementation kotlinLib
     implementation kotlinCoreLib
@@ -71,7 +73,8 @@ dependencies {
     implementation constraintLayoutLib
     implementation coroutinesLib
     implementation viewModelLib
-
+    implementation lifecycleLib
+    implementation liveDataLib
 
     testImplementation jUnitLib
 }

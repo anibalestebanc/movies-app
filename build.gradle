@@ -41,6 +41,9 @@ ext {
     materialDesignVersion = "1.2.1"
     constraintLayoutVersion = "2.0.4"
 
+    //navigation
+    navigationVersion = "2.3.3"
+
     retrofitVersion = "2.9.0"
 
     //testing
@@ -59,6 +62,10 @@ ext {
 
     materialDesignLib = "com.google.android.material:material:$materialDesignVersion"
     constraintLayoutLib = "androidx.constraintlayout:constraintlayout:$constraintLayoutVersion"
+
+    navigationFragmentLib = "androidx.navigation:navigation-fragment-ktx:$navigationVersion"
+    navigationUiLib = "androidx.navigation:navigation-ui-ktx:$navigationVersion"
+
 
     jUnitLib = "junit:junit:$jUnitVersion"
 

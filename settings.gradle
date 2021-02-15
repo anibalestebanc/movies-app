@@ -1,3 +1,4 @@
+include ':app:features:home'
 include ':core:network'
 include ':library:checkversion'
 include ':app:features:login'

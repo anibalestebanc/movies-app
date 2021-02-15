@@ -62,6 +62,8 @@ dependencies {
     implementation project(":library:uicomponent")
     implementation project(":core:network")
 
+    implementation project(":app:features:home")
+
     implementation kotlinLib
     implementation kotlinCoreLib
     implementation appCompatLib

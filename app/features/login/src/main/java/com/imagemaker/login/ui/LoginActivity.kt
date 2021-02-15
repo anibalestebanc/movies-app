@@ -32,7 +32,7 @@ class LoginActivity : AppCompatActivity() {
     private val repository: LoginRepository by lazy {
         LoginRepositoryImpl(localDataSource)
     }
-    private val loginUseCase : LoginUseCase by lazy {
+    private val loginUseCase: LoginUseCase by lazy {
         LoginUseCase(repository)
     }
 
@@ -53,7 +53,10 @@ class LoginActivity : AppCompatActivity() {
 
     private fun setUpListener() {
         binding?.loginButton?.setOnClickListener {
-            viewModel.loginAction(binding?.usernameEditText.toString(),binding?.passwordEditText.toString())
+            viewModel.loginAction(
+                binding?.usernameEditText.toString(),
+                binding?.passwordEditText.toString()
+            )
         }
     }
 
@@ -65,26 +68,29 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 
-    private fun renderUiState(uiState : LoginViewModel.LoginUiState){
-        when(uiState){
+    private fun renderUiState(uiState: LoginViewModel.LoginUiState) {
+        when (uiState) {
             LoginViewModel.LoginUiState.Loading -> setLoadingView()
             LoginViewModel.LoginUiState.Error -> setErrorView()
             LoginViewModel.LoginUiState.Success -> setSuccessView()
         }
     }
 
-    private fun setLoadingView(){
+    private fun setLoadingView() {
         binding?.loadingProgressBar?.apply {
             visibility = View.VISIBLE
         }
     }
 
-    private fun setSuccessView(){
-        binding?.loadingProgressBar?.apply {
+    private fun setSuccessView() {
+        /*binding?.loadingProgressBar?.apply {
             visibility = View.GONE
-        }
+        } */
+        LoginNavigator.navigateToHome(this)
+        finish()
     }
-    private fun setErrorView(){
+
+    private fun setErrorView() {
         binding?.loadingProgressBar?.apply {
             visibility = View.GONE
         }
