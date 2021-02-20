@@ -3,6 +3,8 @@ package com.imagemaker.movies
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.lifecycle.lifecycleScope
+import cl.imagemaker.home.HomeActivity
+import cl.imagemaker.utils.getViewModel
 import com.example.network.NetworkHelper
 import com.imagemaker.checkversion.data.AppConfigRepositoryImpl
 import com.imagemaker.checkversion.data.mapper.AppConfigMapper
@@ -12,7 +14,6 @@ import com.imagemaker.checkversion.data.remote.RemoteAppConfigImpl
 import com.imagemaker.checkversion.data.source.RemoteAppConfig
 import com.imagemaker.checkversion.domain.AppConfigRepository
 import com.imagemaker.checkversion.presentation.GetAppConfigUseCase
-import com.imagemaker.login.getViewModel
 import com.imagemaker.movies.presentation.SplashViewModel
 import com.imagemaker.movies.presentation.SplashViewModel.*
 import kotlinx.coroutines.flow.collect
@@ -78,7 +79,9 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun displayHome(){
-
+        HomeActivity.launch(this).apply {
+            finish()
+        }
     }
 
     private fun displayLogin(){

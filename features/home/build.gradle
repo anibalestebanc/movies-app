@@ -1,5 +1,5 @@
 plugins {
-    id 'com.android.application'
+    id 'com.android.library'
     id 'kotlin-android'
 }
 
@@ -7,13 +7,13 @@ android {
     compileSdkVersion rootProject.compileSdkVersion
 
     defaultConfig {
-        applicationId "com.imagemaker.movies"
         minSdkVersion rootProject.minSdkVersion
         targetSdkVersion rootProject.targetSdkVersion
         versionCode rootProject.versionCode
         versionName rootProject.versionName
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
     }
 
     buildTypes {
@@ -21,32 +21,29 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
-
         debug {
             minifyEnabled false
             debuggable true
         }
     }
+
     flavorDimensions "tier"
     productFlavors {
         prod {
-            applicationIdSuffix ".prod"
-            versionNameSuffix "-prod"
-            resValue "string", "app_name", "MoviesApp"
             dimension "tier"
+            buildConfigField "String", "URL_BASE", "\"https://cloudservices.cl/v1/\""
         }
         dummy {
-            applicationIdSuffix ".dummy"
-            versionNameSuffix "-dummy"
-            resValue "string", "app_name", "MoviesDummy"
             dimension "tier"
+            buildConfigField "String", "URL_BASE", "\"https://mockapi.cl/\""
         }
         uat {
-            applicationIdSuffix ".uat"
-            versionNameSuffix "-dev"
-            resValue "string", "app_name", "MoviesUat"
             dimension "tier"
+            buildConfigField "String", "URL_BASE", "\"https://cloudservicesuat.cl/v1/\""
         }
+    }
+    viewBinding {
+        enabled = true
     }
 
     compileOptions {
@@ -56,18 +53,13 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
-
 }
 
 dependencies {
 
     implementation project(":library:uicomponent")
-    implementation project(":library:checkversion")
-    implementation project(":core:network")
     implementation project(":common:utils")
-
-    implementation project(":features:login")
-    implementation project(":features:home")
+    implementation project(":core:network")
 
     implementation kotlinLib
     implementation kotlinCoreLib
@@ -78,6 +70,8 @@ dependencies {
     implementation viewModelLib
     implementation lifecycleLib
     implementation liveDataLib
-
-    testImplementation jUnitLib
+    implementation retrofitLib
+    implementation retrofitGsonLib
+    implementation navigationFragmentLib
+    implementation navigationUiLib
 }
